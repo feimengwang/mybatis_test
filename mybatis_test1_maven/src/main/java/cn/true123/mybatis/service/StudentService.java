@@ -34,6 +34,7 @@ public class StudentService {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
+			//return session.selectOne("cn.true123.mybatis.mapper.StudentMapper.findStudentById",id);
 			StudentMapper studentMapper = session.getMapper(StudentMapper.class);
 			return studentMapper.findStudentById(id);
 		} finally {
