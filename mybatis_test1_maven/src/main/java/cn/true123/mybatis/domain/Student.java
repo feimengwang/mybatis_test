@@ -1,4 +1,4 @@
-package com.mybatis3.domain;
+package cn.true123.mybatis.domain;
 
 import java.util.Date;
 

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.mybatis3.domain.Student;
+import cn.true123.mybatis.domain.Student;
 
 public class JDBCStudentService {
 	public static void main(String[] args) {
