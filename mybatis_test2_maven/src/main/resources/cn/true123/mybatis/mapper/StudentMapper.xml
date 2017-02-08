@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.true123.mybatis.mapper.StudentMapper">
+	<resultMap type="Student" id="StudentResult">
+		<id property="studId" column="studId" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="dob" column="dob" />
+		<result property="phoneNumber" column="phonenumber"/>
+	</resultMap>
+	<select id="findAllStudents" resultMap="StudentResult">
+		select * from student
+	</select>
+	<select id="findStudentById" parameterType="int" resultType="Student">
+		select * from student where studid=#{id}
+	</select>
+	<insert id="insertStudent" parameterType="Student" useGeneratedKeys="true" keyProperty="studId" keyColumn="studId">
+
+		INSERT INTO STUDENT(NAME,EMAIL,DOB,PHONENUMBER)
+		VALUES(#{name},#{email},#{dob},#{phoneNumber})
+	</insert>
+</mapper>
