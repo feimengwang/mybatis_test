@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="application.properties" />
+	<typeAliases>
+		<typeAlias alias="Student" type="cn.true123.mybatis.domain.Student" />
+		<typeAlias alias="PhoneNumber" type="cn.true123.mybatis.domain.PhoneNumber" />
+		<typeAlias alias="Address" type="cn.true123.mybatis.domain.Address"/>
+	</typeAliases>
+		<typeHandlers>
+		<typeHandler javaType="PhoneNumber" handler="cn.true123.mybatis.typehandler.PhoneTypeHandler" />
+	</typeHandlers>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClassName}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+		<environment id="production">
+			<transactionManager type="managed" />
+			<dataSource type="JNDI">
+				<property name="shop" value="java:comp/jdbc/shop" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="cn/true123/mybatis/mapper/StudentMapper.xml" />
+		<mapper resource="cn/true123/mybatis/mapper/StudentMapper2.xml" />
+	</mappers>
+
+</configuration>
